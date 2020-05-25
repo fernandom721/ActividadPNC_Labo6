@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet">
+    <title>Ingreso de estudiante</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div>
+    <h1>Ingresar estudiante</h1>
+</div>
+
+<form th:action="@{/ingresarEstudiante}" th:object="${estudiante}"
+      method="post" class="main-form" novalidate>
+    <div>
+        <div>
+            <div>
+                <label for="nombre">Nombre </label> <input
+                    th:field="*{nombre}" id="nombre" type="text" placeholder="Nombre del estudiante"
+                    name="nombre"/> <span th:errors="*{nombre}"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label for="apellido">Apellido </label> <input
+                    th:field="*{apellido}" id="apellido" type="text"
+                    placeholder="Apellido del estudiante" name="apellido"/>
+                <span th:errors="*{apellido}"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label for="carne">Carne </label>
+                <input th:field="*{carne}" id="carne" type="text" placeholder="Carne del estudiante" name="carne"/>
+                <span th:errors="*{carne}" ></span>
+            </div>
+        </div>
+
+        <div>
+            <div >
+                <label for="carrera">Carrera </label> <input
+                    th:field="*{carrera}" id="carrera" type="text"
+                    placeholder="Carrera del estudiante" name="carrera"
+                    /> <span th:errors="*{carrera}"></span>
+            </div>
+        </div>
+        <input type="submit" value="Guardar estudiante">
+    </div>
+</form>
+<br>
+<a href="/listado">Listado de estudiantes</a>
+</body>
+</html>
